@@ -4,7 +4,7 @@ const axios = require('axios')
 
 const getAllPokemons = async (URI) => {
   try {
-
+    // pokemons from api
     const pokemonsArray = []
     const resp = await axios(`${URI}/pokemon/?limit=48`)
     for (let poke of resp.data.results) {

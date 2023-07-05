@@ -2,11 +2,13 @@ const axios = require('axios')
 const { Pokemon, Type } = require('../db')
 const { Op } = require('sequelize')
 
+// get pokemon by name from DB
 const pokemonByNameDB = async (name) => {
   const pokemonDB = await Pokemon.findAll({ where: { name: { [Op.iLike]: `%${name}%` } } }, { include: { model: Type, attributes: ['name'], through: { attributes: [] } } })
   if (pokemonDB.length) return pokemonDB
 }
 
+// get pokemon by name from API
 const pokemonByNameAPI = async (name, api) => {
   const { data } = await axios(`${api}/pokemon/${name}`)
   const pokemon = {
