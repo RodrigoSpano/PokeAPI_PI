@@ -26,7 +26,7 @@ const getEachPokemonData = async (pokemons) => {
 
 const getApiPokemons = async (URI) => {
   try {
-    const { data } = await axios(`${URI}/pokemon/?limit=36`)
+    const { data } = await axios(`${URI}/pokemon/?limit=48`)
     const pokemons = await getEachPokemonData(data.results)
     if (pokemons) return pokemons
   } catch (error) {
