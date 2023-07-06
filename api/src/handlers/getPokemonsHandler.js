@@ -1,3 +1,4 @@
+const e = require('express');
 const { Pokemon, Type } = require('../db')
 const axios = require('axios')
 
@@ -15,7 +16,7 @@ const getEachPokemonData = async (pokemons) => {
         speed: data.stats.find(stat => stat.stat.name === 'speed')?.base_stat,
         height: data.height,
         weight: data.weight,
-        types: data.types,
+        types: data.types.map(el => { return { name: el.type.name } }),
       };
     });
     return Promise.all(pokemonPromises);
