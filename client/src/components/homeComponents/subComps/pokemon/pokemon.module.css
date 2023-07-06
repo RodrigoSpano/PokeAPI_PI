@@ -136,3 +136,38 @@ color: white;
   flex-direction: column;
   gap: 6px;
 }
+
+.paginationCont {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  user-select: none;
+}
+
+.paginationCont button {
+  border: none;
+  outline: none;
+  width: 60px;
+  background: #fd7d24;
+  color: white;
+  font-family: 'Lato', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+
+.paginationCont button:hover {
+  transform: scale(0.9);
+}
+
+#prev {
+  border-start-start-radius: 10px;
+}
+#next {
+  border-start-end-radius: 10px;
+}
+
+.paginationCont span {
+  font-weight: bold;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+}

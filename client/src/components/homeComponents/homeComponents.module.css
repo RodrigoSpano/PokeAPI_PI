@@ -1,16 +1,22 @@
-.pokemonsContainer {
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.pokemonsCardsContainer {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 15px;
 }
 
 @media screen and (max-width: 920px){
-  .pokemonsContainer {
+  .pokemonsCardsContainer {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 @media screen and (max-width: 720px){
-  .pokemonsContainer {
+  .pokemonsCardsContainer {
     grid-template-columns: repeat(2, 1fr);
   }
 }
