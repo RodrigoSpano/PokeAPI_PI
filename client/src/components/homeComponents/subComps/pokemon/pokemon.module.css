@@ -171,3 +171,7 @@ color: white;
   font-family: 'Roboto', sans-serif;
   font-size: 18px;
 }
+
+.disabledPag {
+  display: none;
+}
