@@ -9,7 +9,6 @@ import usePagination from "../../utils/customHooks/usePagination";
 import Pagination from "./subComps/pokemon/Pagination";
 
 const PokemonsContainer = () => {
-  // const pokes = useSelector((state) => state.pokemons);
   const { nextHandler, pokemons, prevHandler, count } = usePagination();
   const dispatch = useDispatch();
   useEffect(() => {

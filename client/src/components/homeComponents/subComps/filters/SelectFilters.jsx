@@ -3,7 +3,15 @@ import useSelectFilters from "../../../../utils/customHooks/useSelectFilters";
 
 const SelectFilters = () => {
   const types = useSelector((state) => state.types);
-  // const pokemons = useSelector((state) => state.pokemons)
+  const pokemons = useSelector((state) => state.backup);
+
+  let typesSeparated = pokemons
+    ?.map((pokemon) => pokemon.types.map((el) => el.name))
+    .flat();
+
+  let filteredTypes = types.filter((type) =>
+    typesSeparated.some((el) => el === type.name)
+  );
 
   const {
     handleAttackAndAzOrder,
@@ -40,8 +48,8 @@ const SelectFilters = () => {
         <option value="default" disabled selected>
           types
         </option>
-        {types.length
-          ? types.map((el) => (
+        {filteredTypes.length
+          ? filteredTypes.map((el) => (
               <option key={el.id} value={el.name}>
                 {el.name}
               </option>
