@@ -1,31 +1,22 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  getTypesAction,
-  orderAlfabeticAction,
-  orderAttackAction,
-} from "../../../../redux/pokemons/action";
+import { useSelector } from "react-redux";
+import useSelectFilters from "../../../../utils/customHooks/useSelectFilters";
 
 const SelectFilters = () => {
-  const dispatch = useDispatch();
   const types = useSelector((state) => state.types);
-  useEffect(() => {
-    dispatch(getTypesAction());
-  }, []);
 
-  const handleAttackAndAzOrder = async (e) => {
-    if (e.target.value === "attackASC" || e.target.value === "attackDSC") {
-      dispatch(orderAttackAction(e.target.value));
-    } else {
-      dispatch(orderAlfabeticAction(e.target.value));
-    }
-  };
+  const {
+    handleAttackAndAzOrder,
+    handleResetFilters,
+    status,
+    handleFromApiOrDb,
+  } = useSelectFilters();
 
   return (
     <div>
+      <button onClick={handleResetFilters}>reset</button>
       {/* A-Z - ATTACK */}
-      <select onChange={handleAttackAndAzOrder}>
-        <option selected disabled>
+      <select value={status.order} onChange={handleAttackAndAzOrder}>
+        <option value={"default"} disabled>
           A-Z | -attack+
         </option>
         <option value={"aZ"}>A-Z</option>
@@ -35,12 +26,18 @@ const SelectFilters = () => {
       </select>
 
       {/* API OR DB */}
-      <select>
+      <select value={status.api_db} onChange={handleFromApiOrDb}>
+        <option value="default" disabled>
+          API | DB
+        </option>
         <option value="api">API</option>
         <option value="db">Data Base</option>
       </select>
       {/* TYPE */}
-      <select>
+      <select value={status.types}>
+        <option value="default" disabled selected>
+          types
+        </option>
         {types.length
           ? types.map((el) => (
               <option key={el.id} value={el.name}>
