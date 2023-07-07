@@ -9,7 +9,8 @@ export const TYPES = {
   ORDER_ATTACK: 'ORDER_ATTACK',
   ORDER_ALFABETIC: 'ORDER_ALFABETIC',
   RESET_FILTERS: 'RESET_FILTERS',
-  FILTER_FROM: 'FILTER_FROM'
+  FILTER_FROM: 'FILTER_FROM',
+  FILTER_BY_TYPE: 'FILTER_BY_TYPE'
 }
 
 export const getPokemonsAction = () => {
@@ -64,5 +65,12 @@ export const filterFromApiOrDb = (filter) => {
   return {
     type: TYPES.FILTER_FROM,
     payload: filter
+  }
+}
+
+export const filterByTypeAction = (type) => {
+  return {
+    type: TYPES.FILTER_BY_TYPE,
+    payload: type
   }
 }

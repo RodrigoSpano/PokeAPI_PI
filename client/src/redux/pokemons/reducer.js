@@ -1,7 +1,7 @@
 /* eslint-disable no-case-declarations */
 import { TYPES } from "./action"
 // eslint-disable-next-line no-unused-vars
-const { ADD_POKEMON, GET_POKEMONS, GET_TYPES, ORDER_ATTACK, ORDER_ALFABETIC, RESET_FILTERS, FILTER_FROM } = TYPES
+const { ADD_POKEMON, GET_POKEMONS, GET_TYPES, ORDER_ATTACK, ORDER_ALFABETIC, RESET_FILTERS, FILTER_FROM, FILTER_BY_TYPE } = TYPES
 
 const initialState = {
   pokemons: [],
@@ -21,20 +21,20 @@ const pokemonsReducer = (state = initialState, action) => {
         pokemons: state.backup
       }
     case ORDER_ATTACK:
-      const backupCopy = [...state.pokemons]
+      const pokemonsCopy = [...state.pokemons]
       return {
         ...state,
         pokemons: action.payload === 'attackASC' ?
-          backupCopy.sort((a, b) => a.attack - b.attack) :
-          backupCopy.sort((a, b) => b.attack - a.attack)
+          pokemonsCopy.sort((a, b) => a.attack - b.attack) :
+          pokemonsCopy.sort((a, b) => b.attack - a.attack)
       }
     case ORDER_ALFABETIC:
-      const backCopy = [...state.pokemons]
+      const pokemonsCopy2 = [...state.pokemons]
       return {
         ...state,
         pokemons: action.payload === 'aZ' ?
-          backCopy.sort((a, b) => a.name.localeCompare(b.name)) :
-          backCopy.sort((a, b) => b.name.localeCompare(a.name))
+          pokemonsCopy2.sort((a, b) => a.name.localeCompare(b.name)) :
+          pokemonsCopy2.sort((a, b) => b.name.localeCompare(a.name))
       }
     case FILTER_FROM:
       const uuidRegex =
@@ -54,6 +54,12 @@ const pokemonsReducer = (state = initialState, action) => {
         }
       }
       break
+    case FILTER_BY_TYPE:
+      const backupCopy = [...state.backup]
+      return {
+        ...state,
+        pokemons: backupCopy.filter(pokemon => pokemon.types.some(el => el.name === action.payload))
+      }
     default:
       return { ...state }
   }

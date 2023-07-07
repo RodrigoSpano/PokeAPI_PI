@@ -7,6 +7,7 @@ import {
   orderAlfabeticAction,
   orderAttackAction,
   resetFiltersAction,
+  filterByTypeAction,
 } from "../../redux/pokemons/action";
 
 const useSelectFilters = () => {
@@ -49,10 +50,16 @@ const useSelectFilters = () => {
     setStatus({ ...status, api_db: e.target.value });
   };
 
+  const handleFilterByType = (e) => {
+    dispatch(filterByTypeAction(e.target.value));
+    setStatus({ ...status, types: e.target.value });
+  };
+
   return {
     handleAttackAndAzOrder,
     handleResetFilters,
     handleFromApiOrDb,
+    handleFilterByType,
     status,
   };
 };

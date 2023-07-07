@@ -3,10 +3,12 @@ import useSelectFilters from "../../../../utils/customHooks/useSelectFilters";
 
 const SelectFilters = () => {
   const types = useSelector((state) => state.types);
+  // const pokemons = useSelector((state) => state.pokemons)
 
   const {
     handleAttackAndAzOrder,
     handleResetFilters,
+    handleFilterByType,
     status,
     handleFromApiOrDb,
   } = useSelectFilters();
@@ -34,7 +36,7 @@ const SelectFilters = () => {
         <option value="db">Data Base</option>
       </select>
       {/* TYPE */}
-      <select value={status.types}>
+      <select value={status.types} onChange={handleFilterByType}>
         <option value="default" disabled selected>
           types
         </option>
