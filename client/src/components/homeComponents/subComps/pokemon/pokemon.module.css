@@ -144,19 +144,18 @@ color: white;
   user-select: none;
 }
 
+
 .paginationCont button {
+  color: #fd7d24;
+  background: transparent;
   border: none;
-  outline: none;
-  width: 60px;
-  background: #fd7d24;
-  color: white;
-  font-family: 'Lato', sans-serif;
+  font-size: 24px;
   cursor: pointer;
   transition: all 0.2s ease-in;
 }
 
 .paginationCont button:hover {
-  transform: scale(0.9);
+  transform: scale(1.2);
 }
 
 #prev {

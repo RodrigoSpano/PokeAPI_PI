@@ -1,5 +1,7 @@
 import { useSelector } from "react-redux";
 import useSelectFilters from "../../../../utils/customHooks/useSelectFilters";
+import styles from "./filters.module.css";
+import { BiReset } from "react-icons/bi";
 
 const SelectFilters = () => {
   const types = useSelector((state) => state.types);
@@ -22,8 +24,8 @@ const SelectFilters = () => {
   } = useSelectFilters();
 
   return (
-    <div>
-      <button onClick={handleResetFilters}>reset</button>
+    <div className={styles.container}>
+      <span className={styles.orderby}>order by</span>
       {/* A-Z - ATTACK */}
       <select value={status.order} onChange={handleAttackAndAzOrder}>
         <option value={"default"} disabled>
@@ -56,6 +58,9 @@ const SelectFilters = () => {
             ))
           : null}
       </select>
+      <button onClick={handleResetFilters}>
+        <BiReset /> Reset
+      </button>
     </div>
   );
 };
