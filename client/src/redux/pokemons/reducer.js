@@ -1,7 +1,7 @@
 /* eslint-disable no-case-declarations */
 import { TYPES } from "./action"
 // eslint-disable-next-line no-unused-vars
-const { ADD_POKEMON, GET_POKEMONS, GET_TYPES, ORDER_ATTACK, ORDER_ALFABETIC, RESET_FILTERS, FILTER_FROM, FILTER_BY_TYPE } = TYPES
+const { ADD_POKEMON, GET_POKEMONS, GET_TYPES, ORDER_ATTACK, ORDER_ALFABETIC, RESET_FILTERS, FILTER_FROM, FILTER_BY_TYPE, GET_POKEMON } = TYPES
 
 const initialState = {
   pokemons: [],
@@ -13,6 +13,11 @@ const pokemonsReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_POKEMONS:
       return { ...state, pokemons: action.payload, backup: action.payload };
+    case GET_POKEMON:
+      return {
+        ...state,
+        pokemons: Array.isArray(action.payload) ? [...action.payload] : [action.payload]
+      }
     case GET_TYPES:
       return { ...state, types: action.payload };
     case RESET_FILTERS:
