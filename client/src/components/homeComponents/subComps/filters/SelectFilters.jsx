@@ -1,7 +1,8 @@
 import { useSelector } from "react-redux";
 import useSelectFilters from "../../../../utils/customHooks/useSelectFilters";
 import styles from "./filters.module.css";
-import { BiReset } from "react-icons/bi";
+import CreatePkmBtn from "../../../createPokemonBtn/CreatePkmBtn";
+import ResetFiltersBtn from "../resetBtn/ResetFiltersBtn";
 
 const SelectFilters = () => {
   const types = useSelector((state) => state.types);
@@ -17,50 +18,52 @@ const SelectFilters = () => {
 
   const {
     handleAttackAndAzOrder,
-    handleResetFilters,
     handleFilterByType,
     status,
     handleFromApiOrDb,
   } = useSelectFilters();
 
   return (
-    <div className={styles.container}>
-      <span className={styles.orderby}>order by</span>
-      {/* A-Z - ATTACK */}
-      <select value={status.order} onChange={handleAttackAndAzOrder}>
-        <option value={"default"} disabled>
-          A-Z | -attack+
-        </option>
-        <option value={"aZ"}>A-Z</option>
-        <option value={"zA"}>Z-A</option>
-        <option value={"attackASC"}>Attack-asc</option>
-        <option value={"attackDSC"}>Attack-des</option>
-      </select>
+    <div className={styles.filtersCont}>
+      <div className={styles.container}>
+        <span className={styles.orderby}>order by</span>
+        {/* A-Z - ATTACK */}
+        <select value={status.order} onChange={handleAttackAndAzOrder}>
+          <option value={"default"} disabled>
+            A-Z | -attack+
+          </option>
+          <option value={"aZ"}>A-Z</option>
+          <option value={"zA"}>Z-A</option>
+          <option value={"attackASC"}>Attack-asc</option>
+          <option value={"attackDSC"}>Attack-des</option>
+        </select>
 
-      {/* API OR DB */}
-      <select value={status.api_db} onChange={handleFromApiOrDb}>
-        <option value="default" disabled>
-          API | DB
-        </option>
-        <option value="api">API</option>
-        <option value="db">Data Base</option>
-      </select>
-      {/* TYPE */}
-      <select value={status.types} onChange={handleFilterByType}>
-        <option value="default" disabled selected>
-          types
-        </option>
-        {filteredTypes.length
-          ? filteredTypes.map((el) => (
-              <option key={el.id} value={el.name}>
-                {el.name}
-              </option>
-            ))
-          : null}
-      </select>
-      <button onClick={handleResetFilters}>
-        <BiReset /> Reset
-      </button>
+        {/* API OR DB */}
+        <select value={status.api_db} onChange={handleFromApiOrDb}>
+          <option value="default" disabled>
+            API | DB
+          </option>
+          <option value="api">API</option>
+          <option value="db">Data Base</option>
+        </select>
+        {/* TYPE */}
+        <select value={status.types} onChange={handleFilterByType}>
+          <option value="default" disabled selected>
+            types
+          </option>
+          {filteredTypes.length
+            ? filteredTypes.map((el) => (
+                <option key={el.id} value={el.name}>
+                  {el.name}
+                </option>
+              ))
+            : null}
+        </select>
+      </div>
+      <div className={styles.btnsContainer}>
+        <CreatePkmBtn />
+        <ResetFiltersBtn />
+      </div>
     </div>
   );
 };

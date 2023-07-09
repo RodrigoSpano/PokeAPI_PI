@@ -1,8 +1,31 @@
 .navbarContainer {
-  width: 100%;
-  height: 90px;
-  background-color: cornflowerblue;
+  width: 865px;
+  height: 120px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding-inline: 20px;
+  background-image: url('/assets/art.jpg');
+  background-position: center right;
+  background-repeat: repeat;
+  background-size: contain;
+}
+
+.navbarContainer img {
+  width: 140px;
+  object-fit: contain;
+}
+
+@media screen and (max-width: 920px){
+  .navbarContainer {
+    width: 720px;
+  }
+}
+@media screen and (max-width: 720px){
+  .navbarContainer {
+    width: 420px;
+  }
 }

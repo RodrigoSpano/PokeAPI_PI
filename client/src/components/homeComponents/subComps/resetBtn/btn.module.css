@@ -1,0 +1,20 @@
+ .btn {
+  background-color: cornflowerblue;
+  color: white;
+  border: none;
+  outline: none;
+  height: 30px;
+  width:100px ;
+  font-size: 18px;
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+ .btn:hover {
+  background-color: #ee6b2f;
+}
