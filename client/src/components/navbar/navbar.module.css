@@ -1,5 +1,5 @@
 .navbarContainer {
-  width: 865px;
+  width: 905px;
   height: 120px;
   display: flex;
   align-items: center;
@@ -19,9 +19,10 @@
   object-fit: contain;
 }
 
+
 @media screen and (max-width: 920px){
   .navbarContainer {
-    width: 720px;
+    max-width: 720px;
   }
 }
 @media screen and (max-width: 720px){
