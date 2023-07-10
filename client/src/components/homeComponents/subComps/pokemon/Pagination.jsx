@@ -1,7 +1,10 @@
 /* eslint-disable react/prop-types */
 import { useSelector } from "react-redux";
 import styles from "./pokemon.module.css";
-import { GrFormPrevious, GrFormNext } from "react-icons/gr";
+import {
+  MdKeyboardDoubleArrowLeft,
+  MdKeyboardDoubleArrowRight,
+} from "react-icons/md";
 
 const Pagination = ({ prevFn, nextFn, pages }) => {
   const pokemons = useSelector((state) => state.pokemons);
@@ -9,11 +12,11 @@ const Pagination = ({ prevFn, nextFn, pages }) => {
   return (
     <div className={`${styles.paginationCont} ${disabledStyle}`}>
       <button id={styles.prev} onClick={prevFn}>
-        <GrFormPrevious />
+        <MdKeyboardDoubleArrowLeft />
       </button>
       <span>{pages}</span>
       <button id={styles.next} onClick={nextFn}>
-        <GrFormNext />
+        <MdKeyboardDoubleArrowRight />
       </button>
     </div>
   );

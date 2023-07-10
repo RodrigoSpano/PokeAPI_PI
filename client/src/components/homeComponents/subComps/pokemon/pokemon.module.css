@@ -142,11 +142,11 @@ color: white;
   gap: 5px;
   justify-content: center;
   user-select: none;
+  
 }
 
 
 .paginationCont button {
-  color: #fd7d24;
   background: transparent;
   border: none;
   font-size: 24px;

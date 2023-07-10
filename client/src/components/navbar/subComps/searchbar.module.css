@@ -43,3 +43,17 @@
   border: 1px solid #f6ca3b;
   box-shadow: 0 0 0 4px #f69f3b5f
 }
+
+.backBtn {
+  background: white;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  position: absolute;
+  top: 5px;
+  font-weight: bold;
+  font-size: 12px;
+  padding-inline: 5px;
+  font-family: 'Roboto', sans-serif;
+  cursor: pointer;
+}
