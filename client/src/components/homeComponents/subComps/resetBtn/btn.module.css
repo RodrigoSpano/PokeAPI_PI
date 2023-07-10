@@ -1,5 +1,5 @@
  .btn {
-  background-color: cornflowerblue;
+  background-color: #219ebc;
   color: white;
   border: none;
   outline: none;
@@ -16,5 +16,5 @@
   transition: all 0.4s ease-in-out;
 }
  .btn:hover {
-  background-color: #ee6b2f;
+  background-color: #8ecae6;
 }

@@ -17,6 +17,7 @@
 .navbarContainer img {
   width: 140px;
   object-fit: contain;
+  cursor: pointer;
 }
 
 

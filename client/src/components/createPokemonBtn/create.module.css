@@ -4,7 +4,7 @@
   justify-content: center;
   gap: 2px;
   text-decoration: none;
-  background-color: #ee6b2f;
+  background-color: #fb8500;
   color: white;
   height: 30px;
   width:150px ;
@@ -16,5 +16,5 @@
   transition: all 0.4s ease-in-out;
 }
  .create:hover {
-  background-color: cornflowerblue;
+  background-color: #ffb703;
 }

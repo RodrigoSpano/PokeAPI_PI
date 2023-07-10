@@ -4,6 +4,7 @@ import Landingpage from "./pages/landingPage/Landingpage";
 import HomePage from "./pages/home/HomePage";
 import NavbarContainer from "./components/navbar/NavbarContainer";
 import { useLocation } from "react-router-dom";
+import DetailPage from "./pages/detailPage/DetailPage";
 
 function App() {
   const { pathname } = useLocation();
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Landingpage />} />
         <Route path="/home" element={<HomePage />} />
+        <Route path="/pokemon/:id" element={<DetailPage />} />
       </Routes>
     </div>
   );

@@ -7,4 +7,6 @@
   background-size: cover;
   background-position: right;
   min-height: 100vh;
+  padding-bottom: 20px;
+  overflow-x: hidden;
 }
