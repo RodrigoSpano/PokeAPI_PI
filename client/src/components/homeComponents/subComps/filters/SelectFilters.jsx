@@ -29,7 +29,7 @@ const SelectFilters = () => {
         <span className={styles.orderby}>order by</span>
         {/* A-Z - ATTACK */}
         <select value={status.order} onChange={handleAttackAndAzOrder}>
-          <option value={"default"} disabled>
+          <option value={"default"} disabled selected>
             A-Z | -attack+
           </option>
           <option value={"aZ"}>A-Z</option>
@@ -40,7 +40,7 @@ const SelectFilters = () => {
 
         {/* API OR DB */}
         <select value={status.api_db} onChange={handleFromApiOrDb}>
-          <option value="default" disabled>
+          <option value="default" disabled selected>
             API | DB
           </option>
           <option value="api">API</option>

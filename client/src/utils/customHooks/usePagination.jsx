@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 
@@ -8,6 +9,12 @@ const usePagination = () => {
   const [count, setCount] = useState(1);
   let pokemons = pokemonstate.slice(prev, next);
   const totalPages = Math.ceil(pokemonstate.length / 12); //total de paginas q va a tener mi pagination
+
+  useEffect(() => {
+    setPrev(0);
+    setNext(12);
+    setCount(1);
+  }, [pokemonstate.length]);
 
   const prevHandler = () => {
     if (count > 1) {
