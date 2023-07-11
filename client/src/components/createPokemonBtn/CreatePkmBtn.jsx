@@ -4,7 +4,7 @@ import { BiPlusCircle } from "react-icons/bi";
 
 const CreatePkmBtn = () => {
   return (
-    <Link to={"/"} className={styles.create}>
+    <Link to={"/pokemon/create"} className={styles.create}>
       <BiPlusCircle />
       <span>Create pokemon</span>
     </Link>

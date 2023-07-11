@@ -1,0 +1,78 @@
+.imageContainer {
+  height: 170px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #e9c46a;
+  border-radius: 20px;
+}
+
+.imageContainer img {
+  border-radius: 10px;
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  transition: all 0.2s ease-in;
+  cursor: pointer;
+}
+
+.imageContainer img:hover {
+  transform: scale(1.2);
+  box-shadow: 1px 0px 20px 5px #000;
+}
+
+.rangeContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rangeComp {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.rangeComp span {
+  font-size: 12px;
+  width: 20px;
+}
+
+.rangeComp input {
+  background: #457b9d;
+  appearance: none;
+  outline: none;
+  border-radius: 5px;
+  height: 10px;
+}
+.rangeComp input::-webkit-slider-thumb{
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 15px;
+  border-radius: 4px;
+  background: #1d3557;
+}
+
+.inputsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: start;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.nameInput {
+  display: flex;
+  gap: 10px;
+}
+
+.nameInput input {
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  padding-left: 10px;
+  width: 140px;
+}
