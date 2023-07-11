@@ -1,11 +1,10 @@
+/* eslint-disable react/prop-types */
 import { BiReset } from "react-icons/bi";
-import useSelectFilters from "../../../../utils/customHooks/useSelectFilters";
 import styles from "./btn.module.css";
 
-const ResetFiltersBtn = () => {
-  const { handleResetFilters } = useSelectFilters();
+const ResetFiltersBtn = ({ resetFn }) => {
   return (
-    <button className={styles.btn} onClick={handleResetFilters}>
+    <button className={styles.btn} onClick={resetFn}>
       <BiReset /> Reset
     </button>
   );

@@ -20,6 +20,7 @@ const SelectFilters = () => {
     handleAttackAndAzOrder,
     handleFilterByType,
     status,
+    handleResetFilters,
     handleFromApiOrDb,
   } = useSelectFilters();
 
@@ -29,7 +30,7 @@ const SelectFilters = () => {
         <span className={styles.orderby}>order by</span>
         {/* A-Z - ATTACK */}
         <select value={status.order} onChange={handleAttackAndAzOrder}>
-          <option value={"default"} disabled selected>
+          <option value={"default"} disabled>
             A-Z | -attack+
           </option>
           <option value={"aZ"}>A-Z</option>
@@ -40,7 +41,7 @@ const SelectFilters = () => {
 
         {/* API OR DB */}
         <select value={status.api_db} onChange={handleFromApiOrDb}>
-          <option value="default" disabled selected>
+          <option value="default" disabled>
             API | DB
           </option>
           <option value="api">API</option>
@@ -48,7 +49,7 @@ const SelectFilters = () => {
         </select>
         {/* TYPE */}
         <select value={status.types} onChange={handleFilterByType}>
-          <option value="default" disabled selected>
+          <option value="default" disabled>
             types
           </option>
           {filteredTypes.length
@@ -62,7 +63,7 @@ const SelectFilters = () => {
       </div>
       <div className={styles.btnsContainer}>
         <CreatePkmBtn />
-        <ResetFiltersBtn />
+        <ResetFiltersBtn resetFn={handleResetFilters} />
       </div>
     </div>
   );
