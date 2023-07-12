@@ -65,16 +65,19 @@ const useCreatePokemon = () => {
   };
 
   const handleTypes = (e) => {
-    setPokemon({
-      ...pokemon,
-      types: [...pokemon.types, Number(e.target.value)],
-    });
-    setErrors(
-      validate({
+    const findType = pokemon.types.find((el) => el === Number(e.target.value));
+    if (!findType) {
+      setPokemon({
         ...pokemon,
         types: [...pokemon.types, Number(e.target.value)],
-      })
-    );
+      });
+      setErrors(
+        validate({
+          ...pokemon,
+          types: [...pokemon.types, Number(e.target.value)],
+        })
+      );
+    }
   };
 
   const handleDeleteOneType = (id) => {

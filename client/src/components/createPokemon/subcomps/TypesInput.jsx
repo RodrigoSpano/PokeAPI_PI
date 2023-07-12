@@ -9,7 +9,14 @@ const TypesInput = ({ handleTypes, typesForm }) => {
     <div className={styles.containerSelect}>
       <h5>types</h5>
       {types.length ? (
-        <select className={styles.radioDiv} onChange={handleTypes}>
+        <select
+          className={styles.radioDiv}
+          defaultValue={"default"}
+          onChange={handleTypes}
+        >
+          <option disabled value={"default"}>
+            select types
+          </option>
           {types?.map((type) => (
             <option value={type.id} key={type.id}>
               {type.name}
