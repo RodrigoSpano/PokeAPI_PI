@@ -10,7 +10,7 @@ const Range = ({ title, handleChange, value }) => {
         name={title}
         onChange={handleChange}
         type="range"
-        value={value}
+        value={Number(value)}
         min={10}
         max={200}
       />

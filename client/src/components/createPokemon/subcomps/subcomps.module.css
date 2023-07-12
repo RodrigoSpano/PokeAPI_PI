@@ -76,3 +76,72 @@
   padding-left: 10px;
   width: 140px;
 }
+
+.previsualCont {
+  border-radius: 5px;
+  border: 1px solid #e9c46a;
+  display: flex;
+  width: 300px;
+  height: 150px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  align-items: center;
+  box-shadow: 3px 3px 9px 0px #000;
+}
+
+.previsualCont img {
+  width: 150px;
+  object-fit: contain;
+}
+
+.divsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.abilitiesDiv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-weight: bold;
+  gap: 4px;
+  transition: all 0.3s ease-in;
+}
+.abilitiesDiv:hover {
+  transform: scale(1.3);
+}
+
+.propName {
+  font-weight: bold;
+}
+
+.propDiv {
+  display: flex;
+  gap: 10px;
+}
+
+.containerSelect {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+}
+
+.containerSelect select {
+  font-weight: bold;
+  color: white;
+  border-radius: 3px;
+  appearance: none;
+  background: #219ebc;
+  border: none;
+  outline: none;
+  width: 100px;
+  text-align: center;
+}
+
+.containerSelect select option {
+  background: #8ecae6;
+}
