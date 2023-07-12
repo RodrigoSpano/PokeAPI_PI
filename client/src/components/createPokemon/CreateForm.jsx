@@ -13,6 +13,7 @@ const CreatePokemon = () => {
     handleImage,
     handleReset,
     handleTypes,
+    handleDeleteOneType,
     pokemon,
     errors,
   } = useCreatePokemon();
@@ -23,7 +24,7 @@ const CreatePokemon = () => {
         <InputsContainer handleChange={handleChange} pokemon={pokemon} />
         <div className={styles.prevDiv}>
           <TypesInput handleTypes={handleTypes} typesForm={pokemon.types} />
-          <SelectedTypes pokemon={pokemon} />
+          <SelectedTypes handleDelete={handleDeleteOneType} pokemon={pokemon} />
           <Previsual pokemon={pokemon} />
         </div>
       </div>
@@ -35,7 +36,11 @@ const CreatePokemon = () => {
         </div>
       ) : null}
       <div className={styles.btnsContainer}>
-        <button disabled={true} id={styles.createBtn} onClick={handleSubmit}>
+        <button
+          disabled={Object.values(errors).length ? true : false}
+          id={styles.createBtn}
+          onClick={handleSubmit}
+        >
           create
         </button>
         <button onClick={handleReset} id={styles.resetBtn}>

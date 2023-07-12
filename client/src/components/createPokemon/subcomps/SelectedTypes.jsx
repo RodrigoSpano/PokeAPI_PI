@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 
-const SelectedTypes = ({ pokemon }) => {
+const SelectedTypes = ({ pokemon, handleDelete }) => {
   const types = useSelector((state) => state.types);
   const [typesSelected, setTypesSelected] = useState([]);
 
@@ -20,7 +20,12 @@ const SelectedTypes = ({ pokemon }) => {
   return (
     <div className={style.selectedTypesList}>
       {typesSelected.length > 0
-        ? typesSelected.map((el) => <span key={el.id}>{el.name}</span>)
+        ? typesSelected.map((el) => (
+            <div key={el.id}>
+              <p>{el.name}</p>
+              <span onClick={() => handleDelete(el.id)}>x</span>
+            </div>
+          ))
         : null}
     </div>
   );

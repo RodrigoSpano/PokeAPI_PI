@@ -5,7 +5,7 @@ import styles from "./subcomps.module.css";
 const ImagesCont = ({ handleFn }) => {
   return (
     <div className={styles.chooseImageCont}>
-      <h3>Choose an image</h3>
+      <h3>Choose an image or upload your own</h3>
       <div className={styles.imageContainer}>
         {pokeImg?.map((el) => (
           <img

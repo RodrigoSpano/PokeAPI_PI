@@ -12,6 +12,17 @@ const InputsContainer = ({ handleChange, pokemon }) => {
           onChange={handleChange}
           value={pokemon.name}
           autoComplete="off"
+          placeholder="pokemon name"
+        />
+      </div>
+      <div className={styles.nameInput}>
+        <label>image</label>
+        <input
+          name="image"
+          onChange={handleChange}
+          value={pokemon.image}
+          autoComplete="off"
+          placeholder="image url"
         />
       </div>
       <RangeCont pokemon={pokemon} handleChange={handleChange} />

@@ -19,10 +19,17 @@ const useCreatePokemon = () => {
 
   const validate = (poke) => {
     let validationErrors = {};
-    if (poke.name.length < 3) validationErrors.name = "Invalid name";
-    if (poke.image.length === 0) validationErrors.image = "Invalid image";
-    if (poke.types.length === 0) validationErrors.types = "min types allowed 1";
-    if (poke.types.length > 3) validationErrors.types = "max types allowed 3";
+    const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
+    const nameRegex = /^[a-zA-Z\s]+$/;
+
+    if (poke.name.length < 3) validationErrors.name = "Invalid name.";
+    if (!nameRegex.test(poke.name)) validationErrors.name = "Invalid name.";
+    if (!urlRegex.test(poke.image))
+      validationErrors.image = "Invalid image url.";
+    if (poke.image.length === 0) validationErrors.image = "Invalid image.";
+    if (poke.types.length === 0)
+      validationErrors.types = "min types allowed 1.";
+    if (poke.types.length > 3) validationErrors.types = "max types allowed 3.";
     return validationErrors;
   };
 
@@ -70,6 +77,12 @@ const useCreatePokemon = () => {
     );
   };
 
+  const handleDeleteOneType = (id) => {
+    const filteredType = pokemon.types.filter((el) => el !== id);
+    setPokemon({ ...pokemon, types: filteredType });
+    setErrors(validate({ ...pokemon, types: filteredType }));
+  };
+
   const handleReset = () => {
     setPokemon(intialState);
     setErrors(intialState);
@@ -92,6 +105,7 @@ const useCreatePokemon = () => {
     handleSubmit,
     handleTypes,
     handleReset,
+    handleDeleteOneType,
     pokemon,
     errors,
   };

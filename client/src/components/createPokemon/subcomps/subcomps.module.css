@@ -87,11 +87,14 @@
   font-size: 12px;
   align-items: center;
   box-shadow: 3px 3px 9px 0px #000;
+  gap: 5px;
+  
 }
 
 .previsualCont img {
   width: 150px;
   object-fit: contain;
+  border-radius: 4px;
 }
 
 #pSus{
@@ -174,6 +177,16 @@
   font-family: 'Roboto', sans-serif;
 }
 
-.selectedTypesList span::after{
+.selectedTypesList div {
+  display: flex;
+  gap: 2px;
+}
+
+.selectedTypesList span {
+  color: red;
+  cursor: pointer;
+}
+
+.selectedTypesList div::after{
   content:' |';
 }

@@ -29,15 +29,12 @@
 
 .errors {
   display: flex;
-  gap: 5px;
+  gap: 10px;
+  flex-wrap: wrap;
   color: #e63946;
   font-weight: bold;
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
-}
-
-.errors p::after{
-  content: ' -';
 }
 
 .btnsContainer button {
@@ -58,6 +55,13 @@
 
 #createBtn {
   background: #a8dadc;
+}
+
+#createBtn:disabled {
+  cursor: not-allowed;
+}
+#createBtn:disabled{
+  background: #ccc;
 }
 
 #resetBtn {
