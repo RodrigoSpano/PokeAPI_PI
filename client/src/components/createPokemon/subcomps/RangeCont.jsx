@@ -17,7 +17,7 @@ const RangeCont = ({ pokemon, handleChange }) => {
         <Range
           key={el.title}
           handleChange={handleChange}
-          value={el.value}
+          value={Number(el.value)}
           title={el.title}
         />
       ))}

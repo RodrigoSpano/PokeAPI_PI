@@ -7,7 +7,12 @@ const InputsContainer = ({ handleChange, pokemon }) => {
     <div className={styles.inputsContainer}>
       <div className={styles.nameInput}>
         <label>name</label>
-        <input name="name" onChange={handleChange} value={pokemon.name} />
+        <input
+          name="name"
+          onChange={handleChange}
+          value={pokemon.name}
+          autoComplete="off"
+        />
       </div>
       <RangeCont pokemon={pokemon} handleChange={handleChange} />
     </div>

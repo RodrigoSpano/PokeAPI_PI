@@ -29,11 +29,11 @@ const Previsual = ({ pokemon }) => {
       {pokemon?.image.length ? (
         <img src={pokemon?.image} alt={pokemon?.name} />
       ) : (
-        <p>selected image</p>
+        <p id={styles.pSus}>selected image</p>
       )}
       <div className={styles.divsContainer}>
         <p className={styles.propName}>
-          {pokemon?.name.length ? pokemon?.name : "pokemon name"}
+          {pokemon?.name.length ? pokemon?.name.toUpperCase() : "pokemon name"}
         </p>
         <div className={styles.propDiv}>
           <p className={styles.propName}>weight: {pokemon?.weight}</p>

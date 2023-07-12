@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import styles from "./subcomps.module.css";
 
 /* eslint-disable react/prop-types */
-const TypesInput = ({ handleTypes }) => {
+const TypesInput = ({ handleTypes, typesForm }) => {
   const types = useSelector((state) => state.types);
 
   return (
@@ -17,6 +17,7 @@ const TypesInput = ({ handleTypes }) => {
           ))}
         </select>
       ) : null}
+      <span>{typesForm?.length}/3</span>
     </div>
   );
 };
