@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { createPokemonAction } from "../../redux/pokemons/action";
 
 const intialState = {
   name: "",
@@ -16,6 +18,8 @@ const intialState = {
 const useCreatePokemon = () => {
   const [pokemon, setPokemon] = useState(intialState);
   const [errors, setErrors] = useState(intialState);
+
+  const dispatch = useDispatch();
 
   const validate = (poke) => {
     let validationErrors = {};
@@ -93,7 +97,8 @@ const useCreatePokemon = () => {
 
   const handleSubmit = () => {
     if (!Object.values(errors).length) {
-      console.log(pokemon);
+      // console.log(pokemon);
+      dispatch(createPokemonAction(pokemon));
       alert("pokemon created");
       setPokemon(intialState);
     } else {

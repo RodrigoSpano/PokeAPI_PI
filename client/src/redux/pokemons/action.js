@@ -80,7 +80,6 @@ export const getPokemonByNameAction = (name) => {
   return async (dispatch) => {
     try {
       const { data } = await axios(`${API}/pokemons/?name=${name}`)
-      console.log(data)
       return dispatch({
         type: TYPES.GET_POKEMON,
         payload: data
@@ -91,3 +90,12 @@ export const getPokemonByNameAction = (name) => {
   }
 }
 
+export const createPokemonAction = (pokemon) => {
+  return async (dispatch) => {
+    const { data } = await axios.post(`${API}/pokemons`, pokemon)
+    return dispatch({
+      type: TYPES.ADD_POKEMON,
+      payload: data
+    })
+  }
+}

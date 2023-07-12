@@ -25,6 +25,10 @@ const pokemonsReducer = (state = initialState, action) => {
         ...state,
         pokemons: state.backup
       }
+    case ADD_POKEMON:
+      return {
+        ...state
+      }
     case ORDER_ATTACK:
       const pokemonsCopy = [...state.pokemons]
       return {
