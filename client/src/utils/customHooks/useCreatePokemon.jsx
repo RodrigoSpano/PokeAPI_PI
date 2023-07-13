@@ -24,12 +24,13 @@ const useCreatePokemon = () => {
   const validate = (poke) => {
     let validationErrors = {};
     const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
+    const urlImageRegex = /\.(jpeg|jpg|gif|png|bmp)$/;
     const nameRegex = /^[a-zA-Z\s]+$/;
 
     if (poke.name.length < 3) validationErrors.name = "Name must be longer.";
     if (!nameRegex.test(poke.name))
       validationErrors.name = "name cannot have numbers or symbols.";
-    if (!urlRegex.test(poke.image))
+    if (!urlRegex.test(poke.image) || !urlImageRegex.test(poke.image))
       validationErrors.image = "Invalid image url.";
     if (poke.image.length === 0) validationErrors.image = "Invalid image.";
     if (poke.types.length === 0)

@@ -7,10 +7,19 @@
   align-items: center;
   justify-content: center;
   width: 90%;
+  position: relative;
 }
 .imageContainer img {
   height: 400px;
   object-fit: contain;
+}
+
+.imageContainer span {
+  position: absolute;
+  top: 0;
+  left: 4px;
+  color: #000000a6;
+  font-size: 12px;
 }
 
 .bgImg1 {

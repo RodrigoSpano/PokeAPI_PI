@@ -7,12 +7,17 @@ import PokemonCard from "./subComps/pokemon/PokemonCard";
 import Loader from "../loader/Loader";
 import usePagination from "../../utils/customHooks/usePagination";
 import Pagination from "./subComps/pokemon/Pagination";
+import { useState } from "react";
 
 const PokemonsContainer = () => {
+  const [loader, setLoader] = useState(true);
+
   const { nextHandler, pokemons, prevHandler, count } = usePagination();
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getPokemonsAction());
+    dispatch(getPokemonsAction()).then(() => {
+      setLoader(false);
+    });
   }, []);
   return (
     <div className={styles.container}>
@@ -20,7 +25,7 @@ const PokemonsContainer = () => {
         {pokemons.length ? (
           pokemons?.map((el) => <PokemonCard key={el.id} pokemon={el} />)
         ) : (
-          <Loader />
+          <Loader loader={loader} />
         )}
       </div>
       <Pagination nextFn={nextHandler} prevFn={prevHandler} pages={count} />

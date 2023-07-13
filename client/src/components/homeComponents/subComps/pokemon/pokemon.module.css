@@ -110,10 +110,22 @@ color: white;
   height: 287px;
   transition: all 0.2s ease-in;
   user-select: none;
+  position: relative;
+  z-index: 10;
 }
 
 .pokemonCard:hover {
   transform: scale(1.2);
+  z-index: 100;
+}
+
+.trash {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 20px;
+  background: #ffffff5d;
+  border-radius: 2px;
 }
 
 .pokemonCard h5{

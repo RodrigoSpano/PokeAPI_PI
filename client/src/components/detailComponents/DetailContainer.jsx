@@ -10,6 +10,7 @@ const DetailContainer = ({ pokemon }) => {
         image={pokemon.image}
         types={pokemon.types}
         name={pokemon.name}
+        id={pokemon.id}
       />
       <InfoContainer info={pokemon} />
     </div>

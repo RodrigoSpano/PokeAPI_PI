@@ -4,6 +4,7 @@ import Swal from "sweetalert2"
 const API = 'http://localhost:8080'
 
 export const TYPES = {
+  DELETE_POKEMON: "DELETE_POKEMON",
   GET_POKEMONS: "GET_POKEMONS",
   GET_POKEMON: "GET_POKEMON",
   GET_TYPES: "GET_TYPES",
@@ -107,7 +108,9 @@ export const createPokemonAction = (pokemon) => {
         icon: 'success',
         toast: true,
         showConfirmButton: false,
-        title: 'Pokemon created!'
+        title: 'Pokemon created!',
+        position: 'bottom',
+        timer: 2000
       })
       return dispatch({
         type: TYPES.ADD_POKEMON,
@@ -122,6 +125,26 @@ export const createPokemonAction = (pokemon) => {
         text: `${pokemon.name} already exists.`,
         timer: 4000
       })
+    }
+  }
+}
+
+export const deleteDbPokemonAction = (id) => {
+  return async (dispatch) => {
+    try {
+      await axios.delete(`${API}/pokemons/${id}`)
+      Swal.fire({
+        icon: 'success',
+        showConfirmButton: false,
+        position: 'top',
+        title: 'pokemon deleted!'
+      })
+      return dispatch({
+        type: TYPES.DELETE_POKEMON,
+        payload: id
+      })
+    } catch (error) {
+      console.log(error)
     }
   }
 }
