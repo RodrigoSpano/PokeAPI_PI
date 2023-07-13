@@ -137,7 +137,9 @@ export const deleteDbPokemonAction = (id) => {
         icon: 'success',
         showConfirmButton: false,
         position: 'top',
-        title: 'pokemon deleted!'
+        title: 'pokemon deleted!',
+        toast: true,
+        timer: 1000
       })
       return dispatch({
         type: TYPES.DELETE_POKEMON,
