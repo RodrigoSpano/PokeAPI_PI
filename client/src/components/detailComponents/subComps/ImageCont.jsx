@@ -2,8 +2,13 @@
 import styles from "./subcomps.module.css";
 
 const ImageCont = ({ image, name, types }) => {
-  const findType = types.find((el) => el.name === "fire");
-  let bgImgDefiner = findType ? styles.bgImg1 : styles.bgImg2;
+  const findTypeFire = types.find((el) => el.name === "fire");
+  const findTypeWater = types.find((el) => el.name === "water");
+  let bgImgDefiner = findTypeFire
+    ? styles.bgImg1
+    : findTypeWater
+    ? styles.bgImg3
+    : styles.bgImg2;
   return (
     <div className={`${styles.imageContainer} ${bgImgDefiner}`}>
       <img src={image} alt={name} />

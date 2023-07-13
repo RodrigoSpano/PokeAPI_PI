@@ -26,8 +26,9 @@ const useCreatePokemon = () => {
     const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
     const nameRegex = /^[a-zA-Z\s]+$/;
 
-    if (poke.name.length < 3) validationErrors.name = "Invalid name.";
-    if (!nameRegex.test(poke.name)) validationErrors.name = "Invalid name.";
+    if (poke.name.length < 3) validationErrors.name = "Name must be longer.";
+    if (!nameRegex.test(poke.name))
+      validationErrors.name = "name cannot have numbers or symbols.";
     if (!urlRegex.test(poke.image))
       validationErrors.image = "Invalid image url.";
     if (poke.image.length === 0) validationErrors.image = "Invalid image.";
@@ -97,9 +98,7 @@ const useCreatePokemon = () => {
 
   const handleSubmit = () => {
     if (!Object.values(errors).length) {
-      // console.log(pokemon);
       dispatch(createPokemonAction(pokemon));
-      alert("pokemon created");
       setPokemon(intialState);
     } else {
       console.log(errors);

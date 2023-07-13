@@ -1,4 +1,5 @@
 import axios from "axios"
+import Swal from "sweetalert2"
 
 const API = 'http://localhost:8080'
 
@@ -85,17 +86,42 @@ export const getPokemonByNameAction = (name) => {
         payload: data
       })
     } catch (error) {
-      console.log(error)
+      Swal.fire({
+        position: 'top',
+        toast: true,
+        icon: 'error',
+        title: 'Pokemon not found!',
+        timer: 2000,
+        showConfirmButton: false
+      })
     }
   }
 }
 
 export const createPokemonAction = (pokemon) => {
   return async (dispatch) => {
-    const { data } = await axios.post(`${API}/pokemons`, pokemon)
-    return dispatch({
-      type: TYPES.ADD_POKEMON,
-      payload: data
-    })
+    try {
+      await axios.post(`${API}/pokemons`, pokemon)
+
+      Swal.fire({
+        icon: 'success',
+        toast: true,
+        showConfirmButton: false,
+        title: 'Pokemon created!'
+      })
+      return dispatch({
+        type: TYPES.ADD_POKEMON,
+      })
+    } catch (error) {
+      Swal.fire({
+        position: 'top',
+        toast: true,
+        showConfirmButton: false,
+        icon: 'error',
+        title: 'Cannot create Pokemon!',
+        text: `${pokemon.name} already exists.`,
+        timer: 4000
+      })
+    }
   }
 }

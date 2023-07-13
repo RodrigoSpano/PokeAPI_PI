@@ -19,6 +19,10 @@
 .bgImg2 {
   background-image: url('/assets/bg/light.jpg');
 }
+.bgImg3 {
+  background-image: url('/assets/bg/water.jpg');
+}
+
 
 .statsContainer {
   display: flex;
@@ -93,7 +97,7 @@
 
 .spanDiv {
   display: flex;
-  gap: 20px;
+  gap: 10px;
 }
 
 @media screen and (max-width: 920px){

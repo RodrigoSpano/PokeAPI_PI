@@ -3,7 +3,7 @@ import styles from "./loader.module.css";
 const Loader = () => {
   return (
     <div className={styles.cont}>
-      <div className={styles.spinner}></div>
+      <img src="/assets/loader1.gif" />
     </div>
   );
 };

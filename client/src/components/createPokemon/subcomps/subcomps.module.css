@@ -92,7 +92,8 @@
 }
 
 .previsualCont img {
-  width: 150px;
+  max-width: 150px;
+  height: 150px;
   object-fit: contain;
   border-radius: 4px;
 }
