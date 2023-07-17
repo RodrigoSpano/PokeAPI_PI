@@ -4,6 +4,7 @@ import styles from "./subcomps.module.css";
 const ImageCont = ({ image, name, types, id }) => {
   const findTypeFire = types.find((el) => el.name === "fire");
   const findTypeWater = types.find((el) => el.name === "water");
+
   let bgImgDefiner = findTypeFire
     ? styles.bgImg1
     : findTypeWater

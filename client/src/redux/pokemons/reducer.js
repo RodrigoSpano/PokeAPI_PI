@@ -1,7 +1,7 @@
 /* eslint-disable no-case-declarations */
 import { TYPES } from "./action"
 // eslint-disable-next-line no-unused-vars
-const { DELETE_POKEMON, ADD_POKEMON, GET_POKEMONS, GET_TYPES, ORDER_ATTACK, ORDER_ALFABETIC, RESET_FILTERS, FILTER_FROM, FILTER_BY_TYPE, GET_POKEMON } = TYPES
+const { UPDATE_POKEMON, DELETE_POKEMON, ADD_POKEMON, GET_POKEMONS, GET_TYPES, ORDER_ATTACK, ORDER_ALFABETIC, RESET_FILTERS, FILTER_FROM, FILTER_BY_TYPE, GET_POKEMON } = TYPES
 
 const initialState = {
   pokemons: [],
@@ -26,6 +26,10 @@ const pokemonsReducer = (state = initialState, action) => {
         pokemons: state.backup
       }
     case ADD_POKEMON:
+      return {
+        ...state
+      }
+    case UPDATE_POKEMON:
       return {
         ...state
       }

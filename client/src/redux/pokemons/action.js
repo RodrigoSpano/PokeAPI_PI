@@ -5,6 +5,7 @@ const API = 'http://localhost:8080'
 
 export const TYPES = {
   DELETE_POKEMON: "DELETE_POKEMON",
+  UPDATE_POKEMON: 'UPDATE_POKEMON',
   GET_POKEMONS: "GET_POKEMONS",
   GET_POKEMON: "GET_POKEMON",
   GET_TYPES: "GET_TYPES",
@@ -144,6 +145,27 @@ export const deleteDbPokemonAction = (id) => {
       return dispatch({
         type: TYPES.DELETE_POKEMON,
         payload: id
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+
+export const updatePokemonAction = (id, info) => {
+  return async (dispatch) => {
+    try {
+      await axios.put(`${API}/pokemons/update/${id}`, info)
+      Swal.fire({
+        icon: 'success',
+        showConfirmButton: false,
+        position: 'top',
+        title: 'pokemon updated!',
+        toast: true,
+        timer: 1000
+      })
+      return dispatch({
+        type: TYPES.UPDATE_POKEMON
       })
     } catch (error) {
       console.log(error)

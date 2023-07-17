@@ -3,7 +3,7 @@ import styles from "./detail.module.css";
 import ImageCont from "./subComps/ImageCont";
 import InfoContainer from "./subComps/InfoContainer";
 
-const DetailContainer = ({ pokemon }) => {
+const DetailContainer = ({ pokemon, setPokemon }) => {
   return (
     <div className={styles.container}>
       <ImageCont
@@ -12,7 +12,7 @@ const DetailContainer = ({ pokemon }) => {
         name={pokemon.name}
         id={pokemon.id}
       />
-      <InfoContainer info={pokemon} />
+      <InfoContainer info={pokemon} setPokemon={setPokemon} />
     </div>
   );
 };

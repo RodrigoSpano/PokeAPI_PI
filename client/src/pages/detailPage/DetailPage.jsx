@@ -19,7 +19,9 @@ const DetailPage = () => {
   }, []);
   return (
     <div className={styles.container}>
-      {pokemon ? <DetailContainer pokemon={pokemon} /> : null}
+      {pokemon ? (
+        <DetailContainer pokemon={pokemon} setPokemon={setPokemon} />
+      ) : null}
     </div>
   );
 };

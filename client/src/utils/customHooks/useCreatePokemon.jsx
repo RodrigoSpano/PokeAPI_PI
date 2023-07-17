@@ -1,7 +1,10 @@
 /* eslint-disable no-unused-vars */
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { createPokemonAction } from "../../redux/pokemons/action";
+import {
+  createPokemonAction,
+  updatePokemonAction,
+} from "../../redux/pokemons/action";
 
 const intialState = {
   name: "",
@@ -97,6 +100,18 @@ const useCreatePokemon = () => {
     setErrors(intialState);
   };
 
+  const handleUpdate = (e, id) => {
+    e.preventDefault();
+    console.log(pokemon);
+    if (!Object.values(errors).length) {
+      // dispatch(updatePokemonAction(id, pokemon));
+      setPokemon(intialState);
+    } else {
+      console.log(errors);
+      setErrors(errors);
+    }
+  };
+
   const handleSubmit = () => {
     if (!Object.values(errors).length) {
       dispatch(createPokemonAction(pokemon));
@@ -114,6 +129,7 @@ const useCreatePokemon = () => {
     handleTypes,
     handleReset,
     handleDeleteOneType,
+    handleUpdate,
     pokemon,
     errors,
   };
