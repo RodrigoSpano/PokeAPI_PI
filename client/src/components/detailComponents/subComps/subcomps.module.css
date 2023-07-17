@@ -124,24 +124,13 @@
   transform: scale(1.1);
 }
 
-@media screen and (max-width: 920px){
-  .imageContainer {
-    width: 90vw;
-  }
-  .imageContainer img {
-    height: 300px;
-  }
-  .infoContainer {
-    flex-direction: column-reverse;
-    gap: 20px;
-  }
-}
 
 .updateDiv {
   display: flex;
   gap: 4px;
   align-items: center;
   justify-content: center;
+  font-family: 'Roboto', sans-serif;
 }
 
 .updateDiv span {
@@ -155,7 +144,13 @@
   font-size: 20px;
   cursor: pointer;
   padding-top: 15px;
+  background: transparent;
 } 
+
+.updateDiv button:disabled{
+  cursor: not-allowed;
+  color: #e63946;
+}
 
 .coolinput {
   display: flex;
@@ -190,3 +185,22 @@
   outline: none;
 }
 
+.error {
+  color: #e63946;
+  font-weight: bold;
+  font-size: 14px;
+  top: 0;
+}
+
+@media screen and (max-width: 920px){
+    .imageContainer {
+      width: 90vw;
+    }
+    .imageContainer img {
+      height: 300px;
+    }
+    .infoContainer {
+      flex-direction: column-reverse;
+      gap: 20px;
+    }
+  }

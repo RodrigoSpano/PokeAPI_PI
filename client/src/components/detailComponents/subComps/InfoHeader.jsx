@@ -3,10 +3,16 @@ import TypeSpan from "../../homeComponents/subComps/pokemon/TypeSpan";
 import NameContainer from "./NameContainer";
 import UpdateName from "./UpdateName";
 import styles from "./subcomps.module.css";
-import { useState } from "react";
 
-const InfoHeader = ({ pokemon, setPokemon }) => {
-  const [edit, setEdit] = useState(false);
+const InfoHeader = ({
+  pokemon,
+  setPokemon,
+  setErrorName,
+  errorValidate,
+  setEdit,
+  edit,
+  errorName,
+}) => {
   return (
     <div className={styles.headerInfo}>
       <div>
@@ -17,6 +23,9 @@ const InfoHeader = ({ pokemon, setPokemon }) => {
             setPokemon={setPokemon}
             pokemon={pokemon}
             setEdit={setEdit}
+            errorName={errorName}
+            errorValidate={errorValidate}
+            setErrorName={setErrorName}
             id={pokemon.id}
           />
         )}

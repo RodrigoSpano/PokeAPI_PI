@@ -5,13 +5,22 @@ import { useDispatch } from "react-redux";
 import { updatePokemonAction } from "../../../redux/pokemons/action";
 import { FaCircleCheck } from "react-icons/fa6";
 
-const UpdateName = ({ setEdit, id, pokemon, setPokemon }) => {
+const UpdateName = ({
+  setEdit,
+  id,
+  pokemon,
+  setPokemon,
+  setErrorName,
+  errorValidate,
+  errorName,
+}) => {
   const [data, setData] = useState("");
 
   const dispatch = useDispatch();
 
   const handleName = (e) => {
     setData(e.target.value);
+    setErrorName(errorValidate(e.target.value));
   };
 
   const handleUpdate = () => {
@@ -32,6 +41,7 @@ const UpdateName = ({ setEdit, id, pokemon, setPokemon }) => {
         </label>
         <input
           onChange={handleName}
+          autoCorrect="off"
           type="text"
           placeholder="Write here..."
           name="input"
@@ -41,7 +51,7 @@ const UpdateName = ({ setEdit, id, pokemon, setPokemon }) => {
         />
       </div>
 
-      <button onClick={handleUpdate}>
+      <button disabled={errorName?.name ? true : false} onClick={handleUpdate}>
         <FaCircleCheck />
       </button>
     </div>
