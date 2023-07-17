@@ -154,22 +154,17 @@ export const deleteDbPokemonAction = (id) => {
 
 export const updatePokemonAction = (id, info) => {
   return async (dispatch) => {
-    try {
-      await axios.put(`${API}/pokemons/update/${id}`, info)
-      Swal.fire({
-        icon: 'success',
-        showConfirmButton: false,
-        position: 'top',
-        title: 'pokemon updated!',
-        toast: true,
-        timer: 1000
-      })
-      return dispatch({
-        type: TYPES.UPDATE_POKEMON
-      })
-    } catch (error) {
-      console.log(error)
-      alert('ya existe perri')
-    }
+    await axios.put(`${API}/pokemons/update/${id}`, info)
+    Swal.fire({
+      icon: 'success',
+      showConfirmButton: false,
+      position: 'top',
+      title: 'pokemon updated!',
+      toast: true,
+      timer: 1000
+    })
+    return dispatch({
+      type: TYPES.UPDATE_POKEMON
+    })
   }
 }

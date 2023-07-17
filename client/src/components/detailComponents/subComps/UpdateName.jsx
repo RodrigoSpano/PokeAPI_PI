@@ -4,6 +4,7 @@ import styles from "./subcomps.module.css";
 import { useDispatch } from "react-redux";
 import { updatePokemonAction } from "../../../redux/pokemons/action";
 import { FaCircleCheck } from "react-icons/fa6";
+import Swal from "sweetalert2";
 
 const UpdateName = ({
   setEdit,
@@ -23,12 +24,25 @@ const UpdateName = ({
     setErrorName(errorValidate(e.target.value));
   };
 
-  const handleUpdate = () => {
-    dispatch(updatePokemonAction(id, { name: data })).then(() => {
-      setPokemon({ ...pokemon, name: data });
-      setData("");
-    });
-    setEdit(false);
+  const handleUpdate = async () => {
+    dispatch(updatePokemonAction(id, { name: data }))
+      .then(() => {
+        // setSuccessUpdate(true);
+        setEdit(false);
+        setPokemon({ ...pokemon, name: data });
+        setData("");
+      })
+      .catch(() => {
+        Swal.fire({
+          position: "top",
+          toast: true,
+          showConfirmButton: false,
+          icon: "error",
+          title: "Name already taken!",
+          text: `Pokemon ${data} already exists.`,
+          timer: 4000,
+        });
+      });
   };
 
   return (
