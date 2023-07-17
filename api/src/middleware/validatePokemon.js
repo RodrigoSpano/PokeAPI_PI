@@ -1,4 +1,3 @@
-const { Pokemon } = require('../db')
 const axios = require('axios')
 
 const pokeApi = 'https://pokeapi.co/api/v2'

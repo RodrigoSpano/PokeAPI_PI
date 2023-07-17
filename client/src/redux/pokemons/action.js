@@ -169,6 +169,7 @@ export const updatePokemonAction = (id, info) => {
       })
     } catch (error) {
       console.log(error)
+      alert('ya existe perri')
     }
   }
 }

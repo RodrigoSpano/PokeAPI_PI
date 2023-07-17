@@ -5,7 +5,7 @@ const postPokemon = async (req, res) => {
     const { name, hp, attack, defense, speed, height, weight, image, types } = req.body
     const findPokemon = await Pokemon.findOne({ where: { name: name.toLowerCase() } })
     if (findPokemon) return res.status(302).json({ message: 'this pokemon already exists' })
-    const pokemonObj = { name: name.toLowerCase(), hp, attack, defense, speed, height, weight, image: image ? image : 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/123.png' }
+    const pokemonObj = { name: name.toLowerCase(), hp, attack, defense, speed, height, weight, image }
     const newPokemon = await Pokemon.create(pokemonObj)
     newPokemon.addTypes(types) //tiene q ser el id del type 
     return res.status(201).json(newPokemon)
