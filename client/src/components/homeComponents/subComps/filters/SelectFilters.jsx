@@ -9,7 +9,7 @@ const SelectFilters = () => {
   const pokemons = useSelector((state) => state.backup);
 
   let typesSeparated = pokemons
-    ?.map((pokemon) => pokemon.types.map((el) => el.name))
+    ?.map((pokemon) => pokemon.types?.map((el) => el.name))
     .flat();
 
   let filteredTypes = types.filter((type) =>

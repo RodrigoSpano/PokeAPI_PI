@@ -103,8 +103,7 @@ export const getPokemonByNameAction = (name) => {
 export const createPokemonAction = (pokemon) => {
   return async (dispatch) => {
     try {
-      await axios.post(`${API}/pokemons`, pokemon)
-
+      const { data } = await axios.post(`${API}/pokemons`, pokemon)
       Swal.fire({
         icon: 'success',
         toast: true,
@@ -115,6 +114,7 @@ export const createPokemonAction = (pokemon) => {
       })
       return dispatch({
         type: TYPES.ADD_POKEMON,
+        payload: data
       })
     } catch (error) {
       Swal.fire({

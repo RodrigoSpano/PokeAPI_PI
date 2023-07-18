@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import styles from "./homeComponents.module.css";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getPokemonsAction } from "../../redux/pokemons/action";
 import PokemonCard from "./subComps/pokemon/PokemonCard";
 import Loader from "../loader/Loader";
@@ -13,12 +13,19 @@ const PokemonsContainer = () => {
   const [loader, setLoader] = useState(true);
 
   const { nextHandler, pokemons, prevHandler, count } = usePagination();
+  const pokemonGlobal = useSelector((state) => state.pokemons);
   const dispatch = useDispatch();
+
   useEffect(() => {
-    dispatch(getPokemonsAction()).then(() => {
+    if (!pokemonGlobal.length) {
+      dispatch(getPokemonsAction()).then(() => {
+        setLoader(false);
+      });
+    } else {
       setLoader(false);
-    });
+    }
   }, []);
+
   return (
     <div className={styles.container}>
       <div className={styles.pokemonsCardsContainer}>

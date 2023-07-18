@@ -187,3 +187,21 @@ color: white;
 .disabledPag {
   display: none;
 }
+
+.reloadBtn {
+  position: absolute;
+  cursor: pointer;
+  background: #4592c4;
+  color: white;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  transition: all 0.3s ease-in;
+}
+
+.reloadBtn:hover {
+  transform: scale(1.2);
+}
