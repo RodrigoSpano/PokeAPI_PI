@@ -27,7 +27,6 @@ const UpdateName = ({
   const handleUpdate = async () => {
     dispatch(updatePokemonAction(id, { name: data }))
       .then(() => {
-        // setSuccessUpdate(true);
         setEdit(false);
         setPokemon({ ...pokemon, name: data });
         setData("");
