@@ -37,10 +37,11 @@ const pokemonsReducer = (state = initialState, action) => {
       const findPoke = state.pokemons.find(el => el.id === action.payload)
       if (findPoke) {
         const filteredArr = state.pokemons.filter(el => el.id !== action.payload)
+        const filteredBackup = state.backup.filter(el => el.id !== action.payload)
         return {
           ...state,
           pokemons: filteredArr,
-          backup: filteredArr
+          backup: filteredBackup
         }
       } else {
         return {
