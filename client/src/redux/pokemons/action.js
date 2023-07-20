@@ -92,7 +92,7 @@ export const getPokemonByNameAction = (name) => {
         position: 'top',
         toast: true,
         icon: 'error',
-        title: 'Pokemon not found!',
+        title: `${error.message === "Network Error" ? "Network Error" : 'Pokemon not found'}`,
         timer: 2000,
         showConfirmButton: false
       })
@@ -103,7 +103,7 @@ export const getPokemonByNameAction = (name) => {
 export const createPokemonAction = (pokemon) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.post(`${API}/pokemons`, pokemon)
+      await axios.post(`${API}/pokemons`, pokemon)
       Swal.fire({
         icon: 'success',
         toast: true,
@@ -113,8 +113,7 @@ export const createPokemonAction = (pokemon) => {
         timer: 2000
       })
       return dispatch({
-        type: TYPES.ADD_POKEMON,
-        payload: data
+        type: TYPES.ADD_POKEMON
       })
     } catch (error) {
       Swal.fire({
@@ -122,8 +121,8 @@ export const createPokemonAction = (pokemon) => {
         toast: true,
         showConfirmButton: false,
         icon: 'error',
-        title: 'Cannot create Pokemon!',
-        text: `${pokemon.name} already exists.`,
+        title: `${error.message === "Network Error" ? "Network Error" : 'Error creating Pokemon'}`,
+        text: `${error.message === "Network Error" ? 'your connection is lost' : error.response?.data.message} `,
         timer: 4000
       })
     }
