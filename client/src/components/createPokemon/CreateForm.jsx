@@ -6,7 +6,7 @@ import TypesInput from "./subcomps/TypesInput";
 import Previsual from "./subcomps/Previsual";
 import SelectedTypes from "./subcomps/selectedTypes";
 
-export const CreatePokemon = () => {
+const CreateForm = () => {
   const {
     handleChange,
     handleSubmit,
@@ -28,16 +28,16 @@ export const CreatePokemon = () => {
           <Previsual pokemon={pokemon} />
         </div>
       </div>
-      {Object.values(errors).length ? (
+      {Object?.values(errors).length ? (
         <div className={styles.errors}>
-          {errors.name && <p>{errors.name}</p>}
-          {errors.image && <p>{errors.image}</p>}
-          {errors.types && <p>{errors.types}</p>}
+          {errors?.name && <p>{errors?.name}</p>}
+          {errors?.image && <p>{errors?.image}</p>}
+          {errors?.types && <p>{errors?.types}</p>}
         </div>
       ) : null}
       <div className={styles.btnsContainer}>
         <button
-          disabled={Object.values(errors).length ? true : false}
+          disabled={Object?.values(errors).length ? true : false}
           id={styles.createBtn}
           onClick={handleSubmit}
         >
@@ -50,3 +50,5 @@ export const CreatePokemon = () => {
     </div>
   );
 };
+
+export default CreateForm;

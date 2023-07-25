@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import styles from "./createpokemons.module.css";
 import { useDispatch } from "react-redux";
 import { getTypesAction } from "../../redux/pokemons/action";
-import { CreatePokemon } from "../../components/createPokemon/createForm";
+import CreateForm from "../../components/createPokemon/createForm";
 
 const CreatePokemonPage = () => {
   const dispatch = useDispatch();
@@ -11,7 +11,7 @@ const CreatePokemonPage = () => {
   }, [dispatch]);
   return (
     <div className={styles.pageCont}>
-      <CreatePokemon />
+      <CreateForm />
     </div>
   );
 };
