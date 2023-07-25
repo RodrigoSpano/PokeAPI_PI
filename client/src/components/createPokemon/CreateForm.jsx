@@ -6,7 +6,7 @@ import TypesInput from "./subcomps/TypesInput";
 import Previsual from "./subcomps/Previsual";
 import SelectedTypes from "./subcomps/selectedTypes";
 
-const CreatePokemon = () => {
+export const CreatePokemon = () => {
   const {
     handleChange,
     handleSubmit,
@@ -50,5 +50,3 @@ const CreatePokemon = () => {
     </div>
   );
 };
-
-export default CreatePokemon;
