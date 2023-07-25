@@ -1,8 +1,6 @@
 import axios from "axios"
 import Swal from "sweetalert2"
 
-const API = 'http://localhost:8080'
-
 export const TYPES = {
   DELETE_POKEMON: "DELETE_POKEMON",
   UPDATE_POKEMON: 'UPDATE_POKEMON',
@@ -20,7 +18,7 @@ export const TYPES = {
 export const getPokemonsAction = () => {
   return async (dispatch) => {
     try {
-      const { data } = await axios(`${API}/pokemons`)
+      const { data } = await axios(`/pokemons`)
       return dispatch({
         type: TYPES.GET_POKEMONS,
         payload: data
@@ -34,7 +32,7 @@ export const getPokemonsAction = () => {
 export const getTypesAction = () => {
   return async (dispatch) => {
     try {
-      const { data } = await axios(`${API}/types`)
+      const { data } = await axios(`/types`)
       return dispatch({
         type: TYPES.GET_TYPES,
         payload: data
@@ -82,7 +80,7 @@ export const filterByTypeAction = (type) => {
 export const getPokemonByNameAction = (name) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios(`${API}/pokemons/?name=${name}`)
+      const { data } = await axios(`/pokemons/?name=${name}`)
       return dispatch({
         type: TYPES.GET_POKEMON,
         payload: data
@@ -103,7 +101,7 @@ export const getPokemonByNameAction = (name) => {
 export const createPokemonAction = (pokemon) => {
   return async (dispatch) => {
     try {
-      await axios.post(`${API}/pokemons`, pokemon)
+      await axios.post(`/pokemons`, pokemon)
       Swal.fire({
         icon: 'success',
         toast: true,
@@ -132,7 +130,7 @@ export const createPokemonAction = (pokemon) => {
 export const deleteDbPokemonAction = (id) => {
   return async (dispatch) => {
     try {
-      await axios.delete(`${API}/pokemons/${id}`)
+      await axios.delete(`/pokemons/${id}`)
       Swal.fire({
         icon: 'success',
         showConfirmButton: false,
@@ -153,7 +151,7 @@ export const deleteDbPokemonAction = (id) => {
 
 export const updatePokemonAction = (id, info) => {
   return async (dispatch) => {
-    await axios.put(`${API}/pokemons/update/${id}`, info)
+    await axios.put(`/pokemons/update/${id}`, info)
     Swal.fire({
       icon: 'success',
       showConfirmButton: false,
