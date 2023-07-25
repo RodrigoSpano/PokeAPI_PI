@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import styles from "./createpokemons.module.css";
 import { useDispatch } from "react-redux";
 import { getTypesAction } from "../../redux/pokemons/action";
-import { CreatePokemon } from "../../components/createPokemon/createForm";
+import { CreatePokemon } from "@/components/createPokemon/createForm";
 
 const CreatePokemonPage = () => {
   const dispatch = useDispatch();
